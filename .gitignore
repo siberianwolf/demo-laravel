@@ -1,4 +1,13 @@
+/vendor
+/node_modules
 /bootstrap/compiled.php
+/public/css
+/public/js
+/public/img
 .env.*.php
 .env.php
 .env
+.idea
+.phpstorm.meta.php
+_ide_helper.php
+Homestead.yaml
