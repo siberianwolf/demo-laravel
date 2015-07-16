@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Http\Requests;
 use App\Post;
-use Illuminate\Http\Request;
 use Route;
 
 class PostController extends Controller
@@ -30,18 +30,28 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::lists('name', 'id');
+
+        return view(Route::currentRouteName(), compact('categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request $request
+     * @param  Requests\PostRequest $request
      * @return \Response
      */
-    public function store(Request $request)
+    public function store(Requests\PostRequest $request)
     {
-        //
+        // $post = Post::create($request->input());
+
+        $data = $request->input();
+
+        $data['author_id'] = rand(1, 5);
+
+        $post = Post::create($data);
+
+        return redirect()->route('post.edit', [$post])->with('success', 'Post created');
     }
 
     /**
@@ -65,19 +75,27 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $categories = Category::lists('name', 'id');
+
+        return view(Route::currentRouteName(), compact('post', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request $request
+     * @param  Requests\PostRequest $request
      * @param  int $id
      * @return \Response
      */
-    public function update(Request $request, $id)
+    public function update(Requests\PostRequest $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $data = $request->input();
+
+        $post->update($data);
+
+        return redirect()->back()->with('success', 'Post saved');
     }
 
     /**

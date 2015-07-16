@@ -19,20 +19,11 @@ Route::pattern('post', '^(?!0)[\d]+');
 Route::pattern('category', '^(?!0)[\d]+');
 
 // Route::model('post', 'App\Post');
-Route::model('category', 'App\Category');
+// Route::model('category', 'App\Category');
 
 Route::get('blog', ['as' => 'blog', 'uses' => 'PostController@index']);
 
-Route::resource('post', 'PostController', [
-    'only' => [
-        'show'
-    ]
-]);
-
-Route::resource('category', 'CategoryController', [
-    'only' => [
-        'show'
-    ]
-]);
+Route::resource('post', 'PostController');
+Route::resource('category', 'CategoryController', ['only' => ['show']]);
 
 // Route::get('post/{post}', ['as' => 'post.show', 'uses' => 'PostController@show']);

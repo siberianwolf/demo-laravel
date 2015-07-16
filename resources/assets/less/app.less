@@ -1,7 +1,23 @@
 @charset "UTF-8";
 
+// @import (once) url('//cdn.jsdelivr.net/bootstrap/3.3.5/css/bootstrap.min.css');
+// @import (less) url('//eraser.dev.com.ru/src/bootstrap.less');
+
+@color-grey: #ddd;
+
+// ============================================================================
+//  @section layout
+// ============================================================================
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
 #main {
 
+}
+
+#logo {
 }
 
 #content {
@@ -18,13 +34,16 @@
     }
     &-item {
         padding-bottom: 10px;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid @color-grey;
 
         & + & {
             margin-top: 10px;
         }
         ul {
-            font-size: 12px;
+            font-size: .9em; // 90% от размера родителя
         }
+    }
+    &-name {
+        margin: 0;
     }
 }

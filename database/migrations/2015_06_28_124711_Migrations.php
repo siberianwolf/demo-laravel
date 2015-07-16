@@ -24,8 +24,8 @@ class Migrations extends Migration
         Schema::create('category', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('name');
-            $table->string('description');
+            $table->string('name')->nullable();
+            $table->string('description')->nullable();
 
             $table->timestamps();
         });
@@ -39,9 +39,9 @@ class Migrations extends Migration
             $table->integer('author_id')->unsigned()->index();
             $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
 
-            $table->string('name');
-            $table->string('description');
-            $table->mediumText('content');
+            $table->string('name')->nullable();
+            $table->string('description')->nullable();
+            $table->mediumText('content')->nullable();
 
             $table->timestamps();
         });
