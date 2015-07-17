@@ -1,5 +1,5 @@
 <article class="post-item col-xs-12 row">
-    <div class="col-xs-4">
+    <div class="col-xs-4 row">
         <a href="{{ route('post.show', $post) }}">
             <img class="img-thumbnail" src="https://placeholdit.imgix.net/~text?txtsize=30&bg=fff&w=240&h=160&txt=Thumbnail" alt="{{ $post->name }}">
         </a>

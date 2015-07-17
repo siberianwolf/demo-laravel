@@ -47,11 +47,12 @@ class PostController extends Controller
 
         $data = $request->input();
 
+        // todo: Тестовая подстановка автора поста
         $data['author_id'] = rand(1, 5);
 
         $post = Post::create($data);
 
-        return redirect()->route('post.edit', [$post])->with('success', 'Post created');
+        return redirect()->route('post.edit', [$post])->with('success', trans('post.created'));
     }
 
     /**
@@ -95,7 +96,7 @@ class PostController extends Controller
 
         $post->update($data);
 
-        return redirect()->back()->with('success', 'Post saved');
+        return redirect()->back()->with('success', trans('post.updated'));
     }
 
     /**

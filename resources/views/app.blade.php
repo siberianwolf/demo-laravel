@@ -17,7 +17,7 @@
 <main id="main" class="container">
     <header id="header">
         <h1>{!! link_to_route('blog', 'Мой первый блог на Laravel') !!}</h1>
-        <small>github.com/vlsoprun/demo-laravel</small>
+        <h5>github.com/vlsoprun/demo-laravel</h5>
     </header>
     <hr>
     <div class="row">
@@ -32,7 +32,7 @@
             </ul>
             <p class="h4">Последние 5 постов</p>
             <ul class="list-unstyled">
-                @foreach(App\Post::orderBy('created_at')->take(5)->get() as $post)
+                @foreach(App\Post::orderBy('created_at', 'desc')->take(5)->get() as $post)
                     <li>{!! link_to_route('post.show', $post->name, $post) !!}</li>
                 @endforeach
             </ul>
