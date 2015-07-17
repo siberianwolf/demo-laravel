@@ -9,7 +9,7 @@
         <ul class="list-inline">
             <li>{{ trans('post.author') }}: {{ $post->author->name }}</li>
             <li>{{ trans('post.date') }}:
-                <time datetime=">{{ $post->created_at->toDateTimeString() }}">{{ $post->created_at->toDateTimeString() }}</time>
+                <time datetime="{{ $post->created_at->toDateTimeString() }}">{{ $post->created_at->toDateTimeString() }}</time>
             </li>
         </ul>
         <p>{{ $post->description }}</p>

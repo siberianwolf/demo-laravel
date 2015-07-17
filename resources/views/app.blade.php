@@ -30,7 +30,9 @@
                     <li>{!! link_to_route('category.show', $category->name, $category) !!}</li>
                 @endforeach
             </ul>
+            <hr>
             <p class="h4">Последние 5 постов</p>
+            <hr>
             <ul class="list-unstyled">
                 @foreach(App\Post::orderBy('created_at', 'desc')->take(5)->get() as $post)
                     <li>{!! link_to_route('post.show', $post->name, $post) !!}</li>

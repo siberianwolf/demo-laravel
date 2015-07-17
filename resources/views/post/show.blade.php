@@ -12,7 +12,7 @@
     <ul class="list-inline">
         <li>@lang('post.author'): {{ $post->author->name }}</li>
         <li>@lang('post.date'):
-            <time datetime=">{{ $post->created_at->toDateTimeString() }}">{{ $post->created_at->toDateTimeString() }}</time>
+            <time datetime="{{ $post->created_at->toDateTimeString() }}">{{ $post->created_at->toDateTimeString() }}</time>
         </li>
     </ul>
     <hr>
