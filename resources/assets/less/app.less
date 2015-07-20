@@ -1,9 +1,12 @@
 @charset "UTF-8";
 
-// @import (once) url('//cdn.jsdelivr.net/bootstrap/3.3.5/css/bootstrap.min.css');
-// @import (less) url('//eraser.dev.com.ru/src/bootstrap.less');
-
-@color-grey: #ddd;
+@color-white: white;
+@color-grey-blue: #f5f8f9;
+@color-grey-light: #eceff2;
+@color-grey: #a6a9ac;
+@color-grey-dark: #60686e;
+@color-dark: #3d4347;
+@color-blue: #38b7ea;
 
 // ============================================================================
 //  @section layout
@@ -11,39 +14,48 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
+    color: @color-grey;
+    background: @color-grey-blue;
 }
 
-#main {
+a {
+    color: @color-dark;
 
-}
-
-#logo {
-}
-
-#content {
-
+    &:hover {
+        color: @color-grey-dark;
+    }
 }
 
 #sidebar {
-
+    //padding: 1em;
+    //background: @color-white;
+    //border-radius: .3em;
+    //box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
-.post {
-    &-row {
+//.post {
+//    &-item {
+//
+//
+//        & + & {
+//            margin-top: 1em;
+//        }
+//    }
+//}
 
-    }
-    &-item {
-        padding-bottom: 10px;
-        border-bottom: 1px solid @color-grey;
-
-        & + & {
-            margin-top: 10px;
-        }
-        ul {
-            font-size: .9em; // 90% от размера родителя
-        }
-    }
-    &-name {
-        margin: 0;
-    }
-}
+//.panel {
+//    padding: 1em;
+//    background: @color-white;
+//    border-radius: .3em;
+//    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+//
+//    & + & {
+//        margin-top: 1em;
+//    }
+//    &-title {
+//
+//    }
+//    &-content {
+//
+//    }
+//}
