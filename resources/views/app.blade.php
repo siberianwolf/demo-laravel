@@ -22,7 +22,7 @@
     </header>
     <hr>
     <div class="row">
-        <section class="col-sm-9">
+        <section class="col-sm-9 post-row">
             @yield('content')
         </section>
         <aside id="sidebar" class="col-sm-3">
