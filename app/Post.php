@@ -13,7 +13,7 @@ class Post extends Model
     protected $table = 'post'; // posts
     protected $guarded = ['id'];
     protected $hidden = ['deleted_at'];
-    protected $fillable = ['category_id', 'author_id', 'name', 'description', 'content'];
+    protected $fillable = ['category_id', 'author_id', 'name', 'description', 'content', 'image'];
 
     /**
      * Связь поста с категорией

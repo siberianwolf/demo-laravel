@@ -34,7 +34,8 @@ $factory->define(App\Post::class, function ($faker) {
     return [
         'name' => $faker->name,
         'description' => $faker->paragraph,
-        'content' => $faker->text(rand(100, 500))
+        'content' => $faker->text(rand(100, 500)),
+        'image' => $faker->imageUrl(320, 240)
     ];
 });
 

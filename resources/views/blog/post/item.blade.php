@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-xs-4">
             <a href="{{ route('blog.post.show', $post) }}">
-                <img class="img-thumbnail" src="https://placeholdit.imgix.net/~text?txtsize=30&bg=fff&w=240&h=160&txt=Thumbnail" alt="{{ $post->name }}">
+                <img class="img-thumbnail" src="{{ $post->image }}" alt="{{ $post->name }}">
             </a>
         </div>
         <div class="col-xs-8">
