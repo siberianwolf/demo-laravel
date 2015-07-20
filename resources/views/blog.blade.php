@@ -1,5 +1,5 @@
 @extends('app')
 
 @section('content')
-    @include('post.row')
+    @include('blog.post.row')
 @endsection

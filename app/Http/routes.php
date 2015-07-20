@@ -23,7 +23,9 @@ Route::pattern('category', '^(?!0)[\d]+');
 
 Route::get('blog', ['as' => 'blog', 'uses' => 'PostController@index']);
 
-Route::resource('post', 'PostController');
-Route::resource('category', 'CategoryController', ['only' => ['show']]);
+Route::group(['prefix' => 'blog'], function () {
+    Route::resource('post', 'PostController');
+    Route::resource('category', 'CategoryController', ['only' => ['show']]);
+});
 
 // Route::get('post/{post}', ['as' => 'post.show', 'uses' => 'PostController@show']);

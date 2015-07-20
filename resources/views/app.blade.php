@@ -23,6 +23,7 @@
     <hr>
     <div class="row">
         <section class="col-sm-9 post-row">
+            @include('layout.alert')
             @yield('content')
         </section>
         <aside id="sidebar" class="col-sm-3">
@@ -32,7 +33,7 @@
                 </div>
                 <ul class="list-group">
                     @foreach(App\Category::all() as $category)
-                        <li class="list-group-item">{!! link_to_route('category.show', $category->name, $category) !!}</li>
+                        <li class="list-group-item">{!! link_to_route('blog.category.show', $category->name, $category) !!}</li>
                     @endforeach
                 </ul>
                 <div class="panel-heading">
@@ -40,11 +41,11 @@
                 </div>
                 <ul class="list-group">
                     @foreach(App\Post::orderBy('created_at', 'desc')->take(5)->get() as $post)
-                        <li class="list-group-item">{!! link_to_route('post.show', $post->name, $post) !!}</li>
+                        <li class="list-group-item">{!! link_to_route('blog.post.show', $post->name, $post) !!}</li>
                     @endforeach
                 </ul>
                 <div class="panel-footer text-center">
-                    {!! link_to_route('post.create', trans('post.create'), [], ['class' => 'btn btn-info']) !!}
+                    {!! link_to_route('blog.post.create', trans('post.create'), [], ['class' => 'btn btn-info']) !!}
                 </div>
             </div>
         </aside>
