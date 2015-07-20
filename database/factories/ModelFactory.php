@@ -15,10 +15,7 @@
  * @var Illuminate\Database\Eloquent\Factory $factory
  */
 
-$factory->define(App\User::class, function ($faker) {
-    /**
-     * @var Faker\Generator $faker
-     */
+$factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
@@ -27,22 +24,27 @@ $factory->define(App\User::class, function ($faker) {
     ];
 });
 
-$factory->define(App\Post::class, function ($faker) {
-    /**
-     * @var Faker\Generator $faker
-     */
+$factory->define(App\Post::class, function (Faker\Generator $faker) {
+    $content = null;
+
+    foreach ($faker->paragraphs(rand(1, 15)) as $paragraph) {
+        if ((bool)rand(0, 1) && !is_null($content)) {
+            $content = rtrim($content, "</p>\n") . ' ' . $paragraph . "</p>\n";
+        } else {
+            $content .= '<p>' . $paragraph . "</p>\n";
+        }
+    }
+
     return [
         'name' => $faker->name,
         'description' => $faker->paragraph,
-        'content' => $faker->text(rand(100, 500)),
-        'image' => $faker->imageUrl(320, 240)
+        'content' => $content,
+        'thumbnail' => $faker->imageUrl(320, 240),
+        'large' => $faker->imageUrl(900, 300),
     ];
 });
 
-$factory->define(App\Category::class, function ($faker) {
-    /**
-     * @var Faker\Generator $faker
-     */
+$factory->define(App\Category::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'description' => $faker->paragraph,

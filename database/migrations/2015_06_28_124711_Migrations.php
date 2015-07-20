@@ -41,7 +41,8 @@ class Migrations extends Migration
 
             $table->string('name')->nullable();
             $table->string('description')->nullable();
-            $table->string('image')->nullable();
+            $table->string('thumbnail')->nullable();
+            $table->string('large')->nullable();
             $table->mediumText('content')->nullable();
 
             $table->timestamps();

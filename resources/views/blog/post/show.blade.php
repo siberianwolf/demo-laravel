@@ -20,6 +20,9 @@
             <time datetime="{{ $post->created_at->toDateTimeString() }}">{{ $post->created_at->toDateTimeString() }}</time>
         </li>
     </ul>
+    <figure>
+        <img class="img-thumbnail" src="{{ $post->large }}" alt="{{ $post->name }}">
+    </figure>
     <hr>
-    <p>{{ $post->content }}</p>
+    <p>{!! $post->content !!}</p>
 @endsection
