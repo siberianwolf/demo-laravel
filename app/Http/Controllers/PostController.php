@@ -52,7 +52,7 @@ class PostController extends Controller
 
         $post = Post::create($data);
 
-        return redirect()->route('post.edit', [$post])->with('success', trans('post.created'));
+        return redirect()->route('blog.post.edit', [$post])->with('success', trans('post.created'));
     }
 
     /**
