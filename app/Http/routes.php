@@ -18,8 +18,8 @@ Route::get('/', function () {
 Route::pattern('post', '^(?!0)[\d]+');
 Route::pattern('category', '^(?!0)[\d]+');
 
-// Route::model('post', 'App\Post');
-// Route::model('category', 'App\Category');
+Route::model('post', 'App\Post');
+Route::model('category', 'App\Category');
 
 Route::get('blog', ['as' => 'blog', 'uses' => 'PostController@index']);
 

@@ -17,7 +17,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::latest()
-            // ->with(['category', 'author'])
+            ->with(['category', 'author'])
             ->paginate(20);
 
         return view(Route::currentRouteName(), compact('posts'));
@@ -58,25 +58,22 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param  Post $post
      * @return \Response
      */
-    public function show($id)
+    public function show($post)
     {
-        $post = Post::findOrFail($id); // firstOrFail
-
         return view(Route::currentRouteName(), compact('post'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  Post $post
      * @return \Response
      */
-    public function edit($id)
+    public function edit($post)
     {
-        $post = Post::findOrFail($id);
         $categories = Category::lists('name', 'id');
 
         return view(Route::currentRouteName(), compact('post', 'categories'));
@@ -86,15 +83,12 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  Requests\PostRequest $request
-     * @param  int $id
+     * @param  Post $post
      * @return \Response
      */
-    public function update(Requests\PostRequest $request, $id)
+    public function update(Requests\PostRequest $request, $post)
     {
-        $post = Post::findOrFail($id);
-        $data = $request->input();
-
-        $post->update($data);
+        $post->update($request->input());
 
         return redirect()->back()->with('success', trans('post.updated'));
     }
@@ -102,12 +96,12 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  Post $post
      * @return \Response
      */
-    public function destroy($id)
+    public function destroy($post)
     {
-        Post::destroy($id);
+        Post::destroy($post);
 
         return redirect()->route('blog')->with('success', trans('post.deleted'));
     }

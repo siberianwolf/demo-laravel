@@ -12,16 +12,14 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param  Category $category
      * @return \Response
      */
-    public function show($id)
+    public function show($category)
     {
-        $category = Category::findOrFail($id);
-
         $posts = Post::latest()
             ->where('category_id', $category->id)
-            // ->with(['category', 'author'])
+            ->with(['category', 'author'])
             ->paginate(20);
 
         return view(Route::currentRouteName(), compact('category', 'posts'));
